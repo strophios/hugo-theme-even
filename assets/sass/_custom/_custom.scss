@@ -2,3 +2,55 @@
 // Custom style
 // ==============================
 // You can override the variables in _variables.scss to customize the style
+
+// custom css here is modeled on Conor Gilroy's site and the KISS theme (which he uses)
+// this should be fine, since it seems that the KISS theme uses flexbox for layouts
+// and SASS, the extension of CSS which Even uses, also uses flexbox
+// so hopefully this all works
+
+// CSS purely stolen from Conor's site for styling the avatar picture
+img[alt=me] {
+  border-radius: 50%;
+  width: calc(820px / 3 - 20px); /* this is the desktop width */
+  /* max-width for img is 100% */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+// adding custom css to allow me to set up the homepage with two columns of appropriate width
+// displaying my picture on the left and bio on the right. doing this using flexbox
+// mostly just copying parts of the css in KISS wholesale
+// this currently does not work and I don't know why
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column {
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
+  padding: 10px;
+}
+
+.columns {
+  margin-left: -10px;
+  margin-right: -10px;
+  margin-top: -10px;
+}
+
+.columns.is-one-third {
+  flex: none;
+  width: 33.3333%
+}
+
+.columns.is-two-thirds {
+  flex: none;
+  width: 66.6666%
+}
